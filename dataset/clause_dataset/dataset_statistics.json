@@ -1,0 +1,9 @@
+{
+  "total_clauses": 1491,
+  "total_articles": 779,
+  "total_queries": 1206,
+  "positive_examples": 1867,
+  "yes_labels": 614,
+  "no_labels": 592,
+  "avg_articles_per_query": 1.5480928689883913
+}
