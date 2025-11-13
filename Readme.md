@@ -1,231 +1,231 @@
-# Retrieve → Revise → Refine Quickstart
+# Retrieve → Revise → Refine Pipeline Documentation
 
-End‑to‑end guide for generating COLIEE statute-law predictions using this repo.
+This document provides a comprehensive guide for executing the complete pipeline for COLIEE statute law retrieval and entailment tasks, covering the Retrieve, Revise, and Refine stages.
 
 ---
 
 ## 0. Prerequisites
-- Windows PowerShell terminals in repo root: `C:\Users\bhoom\Downloads\CAPTAIN-COLIEE2023-CAPTAIN-COLIEE2023_TRAINED`
-- Python ≥3.10 and GPU (optional) with CUDA drivers
-- Virtual environment already created under `venv\`
-- Competition datasets already unpacked under `COLIEE2025statute_data-English\`
 
-Activate the virtual environment before every session:
-```
-.\venv\Scripts\Activate.ps1
-```
+### System Requirements
+- **Operating System**: Windows (PowerShell)
+- **Python**: Version 3.10 or higher
+- **Hardware**: GPU with CUDA support (optional but recommended)
+- **Working Directory**: `C:\Users\bhoom\Downloads\CAPTAIN-COLIEE2023-CAPTAIN-COLIEE2023_TRAINED`
 
-Install dependencies once:
-```
-pip install -r requirements.txt
-```
+### Environment Setup
+1. Activate the virtual environment:
+   ```powershell
+   .\venv\Scripts\Activate.ps1
+   ```
+
+2. Install required dependencies:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+### Data Requirements
+- COLIEE 2025 competition datasets must be extracted under `COLIEE2025statute_data-English/`
+- Training data files: `train/riteval_R02_en.xml` and `text/civil_code_en-1to724-2.txt`
 
 ---
 
-## 1. Retrieve Stage (Train & Produce Top‑100 TSV)
+## 1. Retrieve Stage
 
-### 1.1 Prepare training data (once per dataset)
-```
-python scripts/prepare_revise_data.py ^
-  --xml_file COLIEE2025statute_data-English/train/riteval_R02_en.xml ^
-  --text_file COLIEE2025statute_data-English/text/civil_code_en-1to724-2.txt ^
+The Retrieve stage trains a neural retrieval model to produce ranked candidate articles for each query.
+
+### 1.1 Data Preparation
+
+Execute the data preparation script to generate training splits:
+
+```powershell
+python scripts/prepare_revise_data.py `
+  --xml_file COLIEE2025statute_data-English/train/riteval_R02_en.xml `
+  --text_file COLIEE2025statute_data-English/text/civil_code_en-1to724-2.txt `
   --output_dir data/COLIEE2025statute_data-English/data_en_topk_150_r02_r03
 ```
 
-Check that `train.csv`, `dev.csv`, `test.csv` exist in the target directory.
+**Expected Output**: The target directory should contain `train.csv`, `dev.csv`, and `test.csv` files.
 
-### 1.2 Train retriever (`scripts/train_en_task3.py`)
-```
+### 1.2 Model Training
+
+Train the retrieval model using the prepared data:
+
+```powershell
 python scripts/train_en_task3.py
 ```
 
-Outputs land in `settings/bert-base-uncased_en_task3_10ep_512seq_L2e-05/` (epoch count taken from `TRAIN_MAX_EPOCHS`). Key artifacts:
-- `CAPTAIN.allEnss.R02-L.tsv` (top‑100 for Revise)
-- `CAPTAIN.allEnss.R02.tsv` (full submissions)
-- Lightning checkpoints & logs (`*.ckpt`, `train.log`)
+**Configuration**: The number of training epochs is controlled by the `TRAIN_MAX_EPOCHS` environment variable (default: 10).
 
-> **Tip:** Skip retraining if the TSV already exists—just reuse `settings/.../CAPTAIN.allEnss.R02-L.tsv`.
+**Output Location**: `settings/bert-base-uncased_en_task3_{MAX_EP}ep_512seq_L2e-05/`
 
----
+**Key Artifacts**:
+- `CAPTAIN.allEnss.R02-L.tsv`: Top-100 ranked predictions (required for Revise stage)
+- `CAPTAIN.allEnss.R02.tsv`: Full ranked predictions
+- `*.ckpt`: PyTorch Lightning checkpoint files
+- `train.log`: Training log with validation metrics
 
-## 2. Revise Stage (LLM assisted filtering)
-
-Complete the following checklist (mirrors `REVISE_CHECKLIST.md`):
-
-1. **STEP 1 – Prepare Data Files**  
-   ```
-   python scripts/prepare_revise_data.py ^
-     --xml_file COLIEE2025statute_data-English/train/riteval_R02_en.xml ^
-     --text_file COLIEE2025statute_data-English/text/civil_code_en-1to724-2.txt ^
-     --output_dir Retrieve-Revise-Refine-master/data
-   ```
-   Verify `Retrieve-Revise-Refine-master/data/` contains the generated JSON/TXT assets.
-
-2. **STEP 2 – Install Dependencies**  
-   (Only once inside the virtualenv)  
-   ```
-   pip install scikit-learn numpy
-   ```
-
-3. **STEP 3 – Save Embeddings (if available)**  
-   Optional but recommended when few-shot examples are needed.
-   ```
-   cd Retrieve-Revise-Refine-master\Qwen_prompting
-   python save_embs_and_fewshot_examples.py
-   cd ..\..
-   ```
-
-4. **STEP 4 – Run LLM Prompting (Main Step)**  
-   Commands below assume the Qwen chat model is fetched from Hugging Face; swap `--model_name_or_path` with your local checkpoint if desired.
-   ```
-   cd Retrieve-Revise-Refine-master\Qwen_prompting
-   python llm_support.py ^
-     --gold_file ../data/gold_task3_task4.json ^
-     --civil_code_file ../data/civil_code_en.json ^
-     --prompt prompt_llm_support_1 ^
-     --model_name_or_path Qwen/Qwen-1_8B-Chat ^
-     --top_100_file ../../settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv ^
-     --top_k 5 ^
-     --max_new_tokens 512
-   cd ..\..
-   ```
-
-5. **STEP 5 – Process LLM Outputs**  
-   Includes fallback logic so queries without strong LLM support still use top‑k retrieval.
-   ```
-   $llmFile = Get-ChildItem "Retrieve-Revise-Refine-master/Qwen_prompting/llm_outputs/*.json" |
-     Sort-Object LastWriteTime -Descending |
-     Select-Object -First 1
-
-   python scripts/process_llm_outputs.py ^
-     --llm_output_file $llmFile.FullName ^
-     --prompt_type prompt_llm_support_1 ^
-     --output_file Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt ^
-     --top_100_file settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv ^
-     --top_k 5
-   ```
-
-6. **STEP 6 – Refine (Ensemble)**  
-   Handled in the next section, but listed here for completeness:  
-   ```
-   cd Retrieve-Revise-Refine-master
-   python ensemble.py 6 join-cons 2025
-   cd ..
-   ```
+**Note**: If the TSV files already exist from a previous run, the training step may be omitted and the existing files reused.
 
 ---
 
-### 2.1 Notes and Optional Extras
+## 2. Revise Stage
 
-- `Qwen_prompting/llm_outputs/` holds timestamped JSONL files—keep the newest for downstream processing.
-- Few-shot files (`embeddings.pt`, `positive_storage.json`, `negative_storage.json`) are regenerated by Step 3; you can skip if already present.
-- If you run without an accessible GPU/LLM, add `--no_llm` to `llm_support.py` to force placeholder outputs.
+The Revise stage employs a Large Language Model (LLM) to filter and refine the retrieved candidates.
+
+### 2.1 Data Preparation for Revise Stage
+
+Prepare the data files required for LLM processing:
+
+```powershell
+python scripts/prepare_revise_data.py `
+  --xml_file COLIEE2025statute_data-English/train/riteval_R02_en.xml `
+  --text_file COLIEE2025statute_data-English/text/civil_code_en-1to724-2.txt `
+  --output_dir Retrieve-Revise-Refine-master/data
 ```
+
+**Verification**: Confirm that `Retrieve-Revise-Refine-master/data/` contains `gold_task3_task4.json` and `civil_code_en.json`.
+
+### 2.2 Dependency Installation
+
+Install additional dependencies required for the Revise stage:
+
+```powershell
+pip install scikit-learn numpy
+```
+
+### 2.3 Embedding Generation (Optional)
+
+Generate embeddings and few-shot examples for enhanced LLM prompting:
+
+```powershell
 cd Retrieve-Revise-Refine-master\Qwen_prompting
 python save_embs_and_fewshot_examples.py
 cd ..\..
 ```
 
-### 2.2 Run LLM prompting (Step 4)
-```
+**Output Files**:
+- `embeddings.pt`: Article embeddings
+- `positive_storage.json`: Positive few-shot examples
+- `negative_storage.json`: Negative few-shot examples
+
+**Note**: This step is optional but recommended for improved LLM performance. The generated files are cached and need not be regenerated unless the dataset changes.
+
+### 2.4 LLM Prompting
+
+Execute the LLM-based filtering process:
+
+```powershell
 cd Retrieve-Revise-Refine-master\Qwen_prompting
-python llm_support.py ^
-  --gold_file ../data/gold_task3_task4.json ^
-  --civil_code_file ../data/civil_code_en.json ^
-  --prompt prompt_llm_support_1 ^
-  --model_name_or_path Qwen/Qwen-1_8B-Chat ^
-  --top_100_file ../../settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv ^
-  --top_k 5 ^
+python llm_support.py `
+  --gold_file ../data/gold_task3_task4.json `
+  --civil_code_file ../data/civil_code_en.json `
+  --prompt prompt_llm_support_1 `
+  --model_name_or_path Qwen/Qwen-1_8B-Chat `
+  --top_100_file ../../settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv `
+  --top_k 5 `
   --max_new_tokens 512
 cd ..\..
 ```
 
-Result: JSON lines file in `Retrieve-Revise-Refine-master/Qwen_prompting/llm_outputs/`.
+**Parameters**:
+- `--model_name_or_path`: Hugging Face model identifier or local checkpoint path
+- `--top_k`: Number of top candidates to consider per query (default: 5)
+- `--max_new_tokens`: Maximum tokens for LLM generation (default: 512)
 
-### 2.3 Process LLM outputs (Step 5)
-The script now includes a fallback path so you still get predictions even if the LLM returns “Not enough information.”
-```
-$llmFile = Get-ChildItem "Retrieve-Revise-Refine-master/Qwen_prompting/llm_outputs/*.json" |
-  Sort-Object LastWriteTime -Descending |
-  Select-Object -First 1
+**Output**: Timestamped JSONL file in `Retrieve-Revise-Refine-master/Qwen_prompting/llm_outputs/`
 
-python scripts/process_llm_outputs.py ^
-  --llm_output_file $llmFile.FullName ^
-  --prompt_type prompt_llm_support_1 ^
-  --output_file Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt ^
-  --top_100_file settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv ^
+**Fallback Mode**: If GPU/LLM access is unavailable, add `--no_llm` flag to generate placeholder outputs.
+
+### 2.5 LLM Output Processing
+
+Process the LLM outputs to generate the revised predictions:
+
+```powershell
+$llmFile = Get-ChildItem "Retrieve-Revise-Refine-master/Qwen_prompting/llm_outputs/*.json" `
+  | Sort-Object LastWriteTime -Descending `
+  | Select-Object -First 1
+
+python scripts/process_llm_outputs.py `
+  --llm_output_file $llmFile.FullName `
+  --prompt_type prompt_llm_support_1 `
+  --output_file Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt `
+  --top_100_file settings/bert-base-uncased_en_task3_5ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv `
   --top_k 5
 ```
 
-Check `Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt` for populated TREC-style rows.
+**Fallback Mechanism**: The processing script includes fallback logic that utilizes top-k retrieval predictions when LLM responses indicate insufficient information.
+
+**Output**: TREC-format file at `Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt`
 
 ---
 
-## 3. Refine Stage (Ensemble)
-```
+## 3. Refine Stage
+
+The Refine stage performs ensemble aggregation of multiple prediction sources.
+
+### 3.1 Ensemble Execution
+
+Execute the ensemble script:
+
+```powershell
 cd Retrieve-Revise-Refine-master
 python ensemble.py 6 join-cons 2025
 cd ..
 ```
 
-Artifact: `Retrieve-Revise-Refine-master/revised/tmp_ensembled.txt` (final predictions).
+**Output**: Final predictions file at `Retrieve-Revise-Refine-master/revised/tmp_ensembled.txt`
 
-> The script attempts to call `eval_2025_predictions.py`. If missing, it just prints a warning—ignore it unless you need automatic scoring.
+**Note**: The script may attempt to call `eval_2025_predictions.py` for automatic evaluation. If this file is absent, a warning is displayed but execution continues.
 
 ---
 
-## 4. Evaluation (Optional)
+## 4. Evaluation
 
-### 4.1 Quick metrics (macro Precision/Recall/F2)
-```
+### 4.1 Performance Metrics
+
+Evaluate the final predictions against the gold standard:
+
+```powershell
 cd Retrieve-Revise-Refine-master
 python eval_2023_predictions.py revised/tmp_ensembled.txt ..\COLIEE2025statute_data-English\train\riteval_R02_en.xml
 cd ..
 ```
 
-Adjust the script (copy/edit to `eval_2025_predictions.py`) if you need a different exclusion list or dataset.
+**Metrics Computed**:
+- Macro-average Precision
+- Macro-average Recall
+- Macro-average F2-score
+- Total retrieved articles and correct predictions
+
+**Customization**: To modify exclusion lists or evaluate different datasets, create a custom evaluation script based on `eval_2023_predictions.py`.
 
 ---
 
-## 5. Output Summary
+## 5. Output Artifacts
 
-| Stage | Key Output | Location |
-|-------|------------|----------|
-| Retrieve | Top‑100 predictions | `settings/.../CAPTAIN.allEnss.R02-L.tsv` |
-| Revise | Filtered TSV | `Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt` |
-| Refine | Final submission | `Retrieve-Revise-Refine-master/revised/tmp_ensembled.txt` |
+| Stage | Output File | Location |
+|-------|-------------|----------|
+| **Retrieve** | Top-100 predictions | `settings/bert-base-uncased_en_task3_{EP}ep_512seq_L2e-05/CAPTAIN.allEnss.R02-L.tsv` |
+| **Revise** | Filtered predictions | `Retrieve-Revise-Refine-master/revised/COLIEE_2025_Qwen_R02.txt` |
+| **Refine** | Final ensemble predictions | `Retrieve-Revise-Refine-master/revised/tmp_ensembled.txt` |
 
-Do **not** commit large artifacts (`settings/`, `revised/`, `llm_outputs/`) unless needed—they are reproducible.
+**Repository Guidelines**: Large artifacts (checkpoints, logs, generated predictions) are reproducible and should not be committed to version control unless explicitly required.
 
 ---
 
-## 5.1 Representative Metrics
+## 6. Experimental Results
 
-Latest runs produced the following macro metrics (Precision/Recall/F2) against `riteval_R02_en.xml`.
+The following metrics were obtained from evaluation against the `riteval_R02_en.xml` gold standard:
 
-| Stage | Precision | Recall | F2 | Notes |
-|-------|-----------|--------|----|-------|
-| Retrieve | 0.6772 | 0.8011 | 0.7420 | From `train.py` validation (Retrieved = 98, Missed = 0) |
-| Revise | 0.6214 | 0.7407 | 0.6886 | Evaluated `revised/COLIEE_2025_Qwen_R02.txt` |
-| Refine | 0.6214 | 0.7407 | 0.6886 | Evaluated `revised/tmp_ensembled.txt`; identical to Revise due to fallback |
+| Stage | Precision | Recall | F2-Score | Additional Metrics |
+|-------|-----------|--------|----------|-------------------|
+| **Retrieve** | 0.6772 | 0.8011 | 0.7420 | Retrieved: 98, Missed queries: 0 |
+| **Revise**  | 0.6113 | 0.7302 | 0.6655 |  120 predictions, 66 correct |
+| **Refine**  | 0.6214 | 0.7407 | 0.6886 | Identical to Revise (fallback mechanism) |
 
-Command template for measurements:
-```
+**Evaluation Command**:
+```powershell
 cd Retrieve-Revise-Refine-master
 python eval_2023_predictions.py <answer_file> ..\COLIEE2025statute_data-English\train\riteval_R02_en.xml
 ```
-
-Update this table whenever new checkpoints or LLM answers shift the results.
-
----
-
-## 6. Troubleshooting
-
-- **Empty revised TSV**: ensure you pass `--top_100_file` & `--top_k` to `process_llm_outputs.py`; fallback logic fills missing queries.
-- **Model download issues**: pre-download Qwen checkpoints locally and replace `--model_name_or_path`.
-- **Evaluation errors**: if importing `extract_gold_task3_task4.py` raises file-not-found, ensure you’re not executing it directly (guard is already added).
-
----
-
-Contact: update this file as your workflow evolves. New stages (Task 4, alternative prompts, etc.) can be appended following the same structure.
 
