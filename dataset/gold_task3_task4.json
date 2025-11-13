@@ -1,0 +1,589 @@
+{
+    "R02-1-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "15",
+            "11"
+        ],
+        "query": "The family court may decide to commence an assistance also in respect of a person whose capacity to appreciate their own situation is extremely inadequate due to a mental disorder."
+    },
+    "R02-1-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "15"
+        ],
+        "query": "The issuance of a decision for commencement of assistance at the request of a person other than the person in question requires the consent of the person in question unless the family court finds it to be suitable."
+    },
+    "R02-1-U": {
+        "label": "N",
+        "rel_article_ids": [
+            "18"
+        ],
+        "query": "If the grounds of commencement of assistance cease to exist, the family court may rescind the decision for commencement of assistance without any party's request."
+    },
+    "R02-1-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "17"
+        ],
+        "query": "If the assistant does not consent to an act for which the person under assistance must obtain the assistant's consent even though it is unlikely to prejudice the interests of the person under assistance, the family court may grant permission that operates in lieu of the assistant's consent, at the request of the person under assistance."
+    },
+    "R02-2-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "35"
+        ],
+        "query": "A foreign juridical person permitted possesses the same private rights even if a foreign national is not entitled to enjoy the rights as those possessed by a juridical person of the same kind that has been formed in Japan."
+    },
+    "R02-3-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "95"
+        ],
+        "query": "With respect to the rescission of a manifestation of intention on the ground of a mistake, whether the mistake is material or not is decided on the basis of the person making the manifestation of intention."
+    },
+    "R02-3-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "120"
+        ],
+        "query": "If an act that may be rescinded by a person (A) who made the defective manifestation of intention on the ground of A's mistake, the act is also voidable by the counterparty (B)."
+    },
+    "R02-3-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "121-2"
+        ],
+        "query": "If a gift without burden was rescinded on the ground of a mistake by the donor (A), but the donee (B) had already received the payment or delivery based on the gift contract, and B did not know at the time of receiving the payment or delivery that the gift contract was voidable, B has an obligation to return to the extent currently enriched."
+    },
+    "R02-3-O": {
+        "label": "N",
+        "rel_article_ids": [
+            "95"
+        ],
+        "query": "In the case a manifestation of intention of A to B is based on a mistake and the mistake is due to gross negligence on the part of A, A may not rescind the manifestation of intention, unless B knew, or did not know due to gross negligence, of the mistake on the part of A."
+    },
+    "R02-4-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "117"
+        ],
+        "query": "A, who acts as the agent of B, concluded a contract with C for sale of land owned by B. However, A had no authority to represent to conclude the contract. A is liable for the performance of the contract or compensation for loss or damage, as chosen by A."
+    },
+    "R02-4-I": {
+        "label": "Y",
+        "rel_article_ids": [
+            "117"
+        ],
+        "query": "A, who acts as the agent of B, concluded a contract with C for sale of land owned by B. However, A had no authority to represent to conclude the contract. If B ratifies the contract of sales, A is not liable to C as an unauthorized agency."
+    },
+    "R02-4-U": {
+        "label": "N",
+        "rel_article_ids": [
+            "117"
+        ],
+        "query": "A, who acts as the agent of B, concluded a contract with C for sale of land owned by B. However, A had no authority to represent to conclude the contract. In the case that C was negligent in not knowing that A had no authority to represent, even if A knew themselves to have no authority to represent, A is not liable to C as an unauthorized agency."
+    },
+    "R02-5-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "166"
+        ],
+        "query": "A claim for damage due to non-performance is extinguished by prescription,if the obligee does not exercise the right within five years from the time when the obligee came to know that it was exercisable."
+    },
+    "R02-5-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "126"
+        ],
+        "query": "The right to rescind an act induced by fraud is extinguished by prescription, if the obligee does not exercise the right within five years from the time of the act."
+    },
+    "R02-5-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "724"
+        ],
+        "query": "The claim for compensation for loss or damage in torts is extinguished by prescription, if the obligee does not exercise the right within 20 years from the time of the tortious act."
+    },
+    "R02-5-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "169"
+        ],
+        "query": "If a right for which a period of prescription shorter than 10 years is provided is determined by a final and binding judgment, the period of prescription of the right is shorter one."
+    },
+    "R02-5-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "168"
+        ],
+        "query": "A claim for periodic payments is extinguished by prescription, if the obligee does not exercise each claim for the delivery of things such as money arising from the claim for periodic payments within 10 years from the time when the obligee comes to know that each claim is exercisable."
+    },
+    "R02-8-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "192"
+        ],
+        "query": "A took the jewelry that B had forgotten, believing without negligence that it belonged to A. In this case, A may not obtain the ownership of the jewelry by good faith acquisition."
+    },
+    "R02-8-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "192",
+            "193"
+        ],
+        "query": "A stole the jewelry that B had leased from C, and gave it to D. If D received the actual delivery of the jewelry believing without negligence that it belonged to A, B may demand the return of the jewelry from D within two years from the time of the theft."
+    },
+    "R02-9-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "200"
+        ],
+        "query": "A has leased a copying machine owned by A to B, and B has not returned it by using it even after the termination of the lease agreement. In this case, A may demand the return of the copying machine against B by filing an action for recovery of possession."
+    },
+    "R02-9-I": {
+        "label": "Y",
+        "rel_article_ids": [
+            "200"
+        ],
+        "query": "B stole A's computer with a sticker \"Owner A\" on the bottom. B transferred the computer to C who does not know the theft, without changing the computer's appearance. In this case, A may not demand the return of the computer by filing an action for recovery of possession."
+    },
+    "R02-9-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "200"
+        ],
+        "query": "A has leased a machine tool owned by A to B, and C stole the machine tool from B within the duration of the lease agreement. In this case, B may file an action for recovery of possession against C independently of A."
+    },
+    "R02-9-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "192"
+        ],
+        "query": "B obtained A's bicycle by fraud. In this case, A may demand the return of the bicycle against B by filing an action for recovery of possession."
+    },
+    "R02-9-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "201"
+        ],
+        "query": "A had owned land in an area of holiday homes. B, who owned neighboring land, began to construct a fence on A's land crossing the boundary without A's consent, and two years later the fence was completed. As of this time, A may not demand the removal of the fence against B by filing an action for maintenance of possession."
+    },
+    "R02-10-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "268"
+        ],
+        "query": "The duration of agreed superficies must be fixed within a duration of 20 years or more but not more than 50 years."
+    },
+    "R02-10-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "265"
+        ],
+        "query": "Superficies are the rights to use a land in order to own structures, or trees or bamboo."
+    },
+    "R02-10-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "269-2"
+        ],
+        "query": "An underground space or airspace may be established as the subject matter of superficies for ownership of structures, through the specification of upper and lower extents."
+    },
+    "R02-11-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "338"
+        ],
+        "query": "In order to preserve the effectiveness of statutory liens for construction work for immovables, the budgeted expenses of the construction work must be registered prior to the commencement of the same."
+    },
+    "R02-12-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "396"
+        ],
+        "query": "An obligor (A) created a mortgage for an obligee (B) on the real property owned by A and the creation was registered. A may assert the extinctive prescription of the mortgage if 20 years have passed from the time when it becomes exercisable, even if the claim the mortgage secures is not extinguished."
+    },
+    "R02-13-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "398-11",
+            "376"
+        ],
+        "query": "Suppose that obligator (A) sets a mortgage on his real estate for obligee (B).\nAn obligee (B) may assign the order of priority of a mortgage to another obligee(C) of obligator (A) before the principal is crystallized."
+    },
+    "R02-13-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "398-6",
+            "398-4"
+        ],
+        "query": "Suppose that obligator (A) sets a mortgage on his real estate for obligee (B).\nIf there is a subordinated mortgagee(F), in order for A and B to effect the changes of the principal crystallization date of the revolving mortgage, the consent of F must be obtained."
+    },
+    "R02-15-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "412-2"
+        ],
+        "query": "The contract for sale does not become effective in the case where X is burned down the day before the day of the conclusion of the contract."
+    },
+    "R02-15-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "422-2"
+        ],
+        "query": "If, after the conclusion of the contract for sale, a buyer (B) pays 1000000 yen for X, but before a seller (A) delivers X to B, X is burned-out due to grounds attributable to B, and A obtains 700,000 yen of the insurance money for damage caused by the destruction of X, B may claim payment of 700,000 yen to A."
+    },
+    "R02-15-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "536"
+        ],
+        "query": "If, after the conclusion of the contract for sale and before A delivers X to B, X is burned down caused by negligence of a third party, the debt to pay the price of B is extinguished by operation of law."
+    },
+    "R02-15-O": {
+        "label": "N",
+        "rel_article_ids": [
+            "567"
+        ],
+        "query": "If A tenders the performance of the obligation of delivery of X and B refuses to accept without a legitimate reason,and X is lost due to gross negligence of A while in custody of X by A, B may not refuse to pay the price."
+    },
+    "R02-16-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "424-7"
+        ],
+        "query": "In the case that an obligee (C) files an action concerning demand for rescission of fraudulent act, an obligor (A) must be stood as a defendant."
+    },
+    "R02-16-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "424-5",
+            "424"
+        ],
+        "query": "If beneficiary (B) sells and delivers X to a subsequent acquirer (D), who knows that the gifts of X will prejudice the obligee of A, C may claim to D to rescind the sale between B and D."
+    },
+    "R02-16-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "424"
+        ],
+        "query": "If B sells and delivers X to D, who knows that the gift of X will prejudice the obligee of A, C may claim to B to rescind the gift between A and B."
+    },
+    "R02-16-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "425"
+        ],
+        "query": "A final and binding judgment upholding demand for rescission of fraudulent act of C is effective against all obligees of A."
+    },
+    "R02-16-O": {
+        "label": "N",
+        "rel_article_ids": [
+            "425-4",
+            "425-2"
+        ],
+        "query": "If B sells and delivers X to D, who knows that the gifts of X will prejudice the obligee of A and judgment upholding demand for rescission of fraudulent act of C has become final and binding, D may demand the return of the price from B."
+    },
+    "R02-17-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "438",
+            "439",
+            "440",
+            "441"
+        ],
+        "query": "In the case that an obligee (D) files an action concerning demand for performance of an obligation (X) and judgment upholding the demand has become final and binding, if neither D nor an obligor (B) manifests a particular intention, a new period of extinctive prescription of X commences to run at the time when the judgment has become final and binding."
+    },
+    "R02-17-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "438",
+            "439",
+            "440",
+            "441"
+        ],
+        "query": "In the case that D manifests the intention to release another obligor (C) from the obligation to D, even if neither D nor B manifests a particular intention, D may not claim the payment of 600,000 to another obligor (A)."
+    },
+    "R02-17-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "439"
+        ],
+        "query": "If D owes C a debt (Y) of 300000 yen that is set off against the debt (X), and D demands payment of 600000 yen from A while C does not use a set-off for the debt (Y), A may refuse to pay 200000 yen of that debt."
+    },
+    "R02-17-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "443"
+        ],
+        "query": "In the case that D owes C a debt (Y) of 200000 yen that is set off against the debt (X), if A, knowing that C is a joint and several obligor of the debt (X), pays 600000 yen to D and claims reimbursement from C without giving notice to C and C duly asserts a set-off as defense against A, A may request D to pay 200000 yen of Y which should have been extinguished due to set-off."
+    },
+    "R02-18-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "466-5"
+        ],
+        "query": "If a deposit claim held by A against Bank (B) is subject to a special agreement that it cannot be assigned, even if A enters into an agreement with G to assign the deposit claim, the assignment will not be effective if G was in bad faith or grossly negligent with respect to the special agreement."
+    },
+    "R02-19-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "499",
+            "500"
+        ],
+        "query": "If a third-party collateral provider paid a secured claim, the third-party collateral provider may exercise the secured claim acquired through subrogation without requirement for perfection."
+    },
+    "R02-19-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "502"
+        ],
+        "query": "If a guarantor has partially paid a secured claim but there is a remaining obligation, the guarantor may independently exercise the secured claim and the security right acquired through subrogation in proportion to the value of the subrogee's performance."
+    },
+    "R02-19-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "504"
+        ],
+        "query": "In case that the obligee is found to have reasonable grounds in light of the common sense in the transaction for causing the security to be diminished, the guarantor may not assert that the guarantor is relieved from responsibility to the extent that that the guarantor can no longer seek the reimbursement due to the diminution in the security available upon subrogation."
+    },
+    "R02-21-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "404"
+        ],
+        "query": "Unless the parties manifest a particular intention with respect to a claim which bears interest, the rate of the interest is the statutory interest rate as of the time when the interest first accrues."
+    },
+    "R02-23-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "484"
+        ],
+        "query": "Unless a particular intention is manifested with respect to the place where the performance should take place, even if X was located at the domicile of D at the time of the conclusion of contract for sale, the delivery of X must be effected at the current domicile of B."
+    },
+    "R02-23-U": {
+        "label": "N",
+        "rel_article_ids": [
+            "539-2"
+        ],
+        "query": "If B makes an agreement with E to transfer contractual status of the buyer to E, regardless of whether A consents, the status of the buyer is transferred to E."
+    },
+    "R02-23-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "537"
+        ],
+        "query": "If the contract of sale stipulates that F, who was not born at the time of the conclusion of the contract, is to acquire the ownership of X, the contract of sale is invalid."
+    },
+    "R02-23-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "537",
+            "538"
+        ],
+        "query": "If A delays in delivering X after the contract of sale stipulates that a third party (G) is to acquire the ownership of X and G manifests intention of availing of the benefit, B may not cancel the contract of sale without G's consent."
+    },
+    "R02-24-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "415",
+            "561"
+        ],
+        "query": "In the case that the seller cannot acquire and transfer the rights to the buyer, if the buyer, at the moment of the contract, knows that the rights the buyer has bought do not belong to the seller, it shall not preclude a buyer from making a claim for damages."
+    },
+    "R02-24-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "415",
+            "561"
+        ],
+        "query": "In the case that the seller cannot acquire and transfer the rights to the buyer, the buyer may claim to seller compensation for loss or damage even if the case is not caused by grounds attributable to the seller."
+    },
+    "R02-24-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "562",
+            "563"
+        ],
+        "query": "If the seller cannot transfer any part of the rights which are the subject matter of the sale because the part of the rights belong to others and it is impossible to cure the non-conformity of performance, the seller may immediately claim a reduction of the purchase money without demand."
+    },
+    "R02-24-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "564",
+            "565"
+        ],
+        "query": "In the case that the seller cannot acquire and transfer the rights to the buyer, if the buyer, at the moment of the contract, knows that the rights the buyer has bought do not belong to the seller, the seller may not cancel the contract."
+    },
+    "R02-24-O": {
+        "label": "N",
+        "rel_article_ids": [
+            "566"
+        ],
+        "query": "In the case that the seller cannot acquire and transfer the rights to the buyer, the buyer may not make a claim for damages to the seller in good faith without giving a notice within a year from the time when the seller knows the fact that the rights belong to others."
+    },
+    "R02-25-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "605-2"
+        ],
+        "query": "If a leased immovables are assigned and the status of the lessor is transferred to the assignee,the assignee thereof succeeds to the obligation of assignor to reimburse expenses to the lessee."
+    },
+    "R02-25-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "606"
+        ],
+        "query": "A lessor assumes an obligation to effect repairs necessary for using and making profit of the leased thing even if repairs are necessary due to any grounds attributable to the lessee."
+    },
+    "R02-25-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "611"
+        ],
+        "query": "If it comes to no longer be possible to use or profit from part of a leased thing due to grounds such as loss and this is caused by grounds not attributable to the lessee, the rent is reduced in proportion to the value of the part that can no longer be used or profited from."
+    },
+    "R02-25-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "613"
+        ],
+        "query": "If the lessee lawfully subleases a leased thing, the lessor may not duly assert against the sublessee the cancellation by agreement of the lease with the lessee even if the lessor has a right to cancel due to non-performance on the part of the lessee at the time of the cancellation."
+    },
+    "R02-25-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "621"
+        ],
+        "query": "If The lessee is not obligated to restore any wear of the leased thing caused by the ordinary manner of using and making profit from it when the lease is terminated."
+    },
+    "R02-26-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "651"
+        ],
+        "query": "A party that has cancelled a mandate, notwithstanding the time of the cancellation, is not liable to the other party for compensation for loss or damage."
+    },
+    "R02-26-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "656"
+        ],
+        "query": "The provisions regarding mandate of juridical acts do not apply mutatis mutandis to entrustments of business that do not constitute juridical acts."
+    },
+    "R02-26-U": {
+        "label": "N",
+        "rel_article_ids": [
+            "649"
+        ],
+        "query": "The mandatary may not request the costs that are incurred in administering the mandated business until after having paid those costs."
+    },
+    "R02-26-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "653",
+            "655"
+        ],
+        "query": "If a mandate is terminated because the mandator has become subject to an order commencing bankruptcy proceedings, the mandator may not assert against the mandatary unless the mandatary was notified of or knew of the fact that the mandator is subject to the order commencing bankruptcy proceeding."
+    },
+    "R02-27-A": {
+        "label": "N",
+        "rel_article_ids": [
+            "676"
+        ],
+        "query": "A partner may independently exercise the rights with regard to a monetary claim that is included in the partnership property in proportion to each co-owner's interest."
+    },
+    "R02-27-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "670"
+        ],
+        "query": "The partnership business is decided by the majority of the partners even if any person is delegated to be a person who executes business."
+    },
+    "R02-27-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "678"
+        ],
+        "query": "Even if the duration of the partnership is specified, each partner may withdraw if there is a compelling reason to do so."
+    },
+    "R02-27-E": {
+        "label": "Y",
+        "rel_article_ids": [
+            "677-2"
+        ],
+        "query": "A new partner that is admitted to a partnership after it is formed is not liable to perform the obligations of the partnership that arose before that partner's admission."
+    },
+    "R02-27-O": {
+        "label": "N",
+        "rel_article_ids": [
+            "676"
+        ],
+        "query": "A partner may seek the division of the partnership property before liquidation if the consent of the majority of partners exists."
+    },
+    "R02-28-U": {
+        "label": "N",
+        "rel_article_ids": [
+            "706"
+        ],
+        "query": "A person who misunderstands due to negligence that the due date arrives and has paid money or delivered anything as performance of an obligation that has not yet fallen due may demand the return of the money paid or thing delivered before the arrival of the due date."
+    },
+    "R02-28-O": {
+        "label": "Y",
+        "rel_article_ids": [
+            "707"
+        ],
+        "query": "A person who misunderstands that the person is an obligor and has performed an obligation may not demand the return of subject matter of the performance if the obligee, acting in good faith, has lost the claim by prescription."
+    },
+    "R02-29-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "509"
+        ],
+        "query": "If a person that holds a monetary claim has borne an obligation for compensation for loss or damage for injury to the obligor of that monetary claim, the person may not duly assert against the obligor, a set-off using the monetary claim against the obligation for compensation."
+    },
+    "R02-36-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "120"
+        ],
+        "query": "An act that is voidable on the grounds of a mistake may also be rescinded by the successor of the contractual status of the person who made the manifestation of intention by mistake."
+    },
+    "R02-36-I": {
+        "label": "N",
+        "rel_article_ids": [
+            "153"
+        ],
+        "query": "The postponement of expiry of prescription period is not effective against the successors of the parties with respect to whom grounds to postpone the expiry of prescription period have arisen."
+    },
+    "R02-36-U": {
+        "label": "Y",
+        "rel_article_ids": [
+            "187"
+        ],
+        "query": "A universal successor to a possessor may also assert the successor's own possession only."
+    },
+    "R02-36-E": {
+        "label": "N",
+        "rel_article_ids": [
+            "254"
+        ],
+        "query": "A claim that a co-owner (A) holds against another co-owner (B) with respect to the property in co-ownership may not be exercised against B's specific successors."
+    },
+    "R02-37-A": {
+        "label": "Y",
+        "rel_article_ids": [
+            "406",
+            "407"
+        ],
+        "query": "If the obligor of an alternative obligation manifests the intention to exercise the right to choose, the manifestation may not be withdrawn without the consent of the obligee even before the due date of the obligation."
+    },
+    "R02-37-I": {
+        "label": "Y",
+        "rel_article_ids": [
+            "540"
+        ],
+        "query": "The manifestation of intention to cancel may not be revoked."
+    }
+}
