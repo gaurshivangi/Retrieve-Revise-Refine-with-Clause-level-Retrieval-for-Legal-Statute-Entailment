@@ -415,4 +415,102 @@ class ClauseAwareAggregator:
         
         return article_results
 
+class ClauseRetrievalEvaluator:
+    """
+    Evaluator for clause-level retrieval system
+    """
+    
+    def __init__(self, retriever: ClauseRetriever):
+        self.retriever = retriever
+    
+    def evaluate_on_dataset(self, test_data_path: str) -> Dict[str, float]:
+        """
+        Evaluate retrieval system on test dataset
+        
+        Args:
+            test_data_path: Path to test dataset CSV
+        
+        Returns:
+            Dictionary of evaluation metrics
+        """
+        test_data = pd.read_csv(test_data_path)
+        
+        # Group by query
+        query_groups = test_data.groupby('query_id')
+        
+        total_queries = len(query_groups)
+        total_retrieved = 0
+        total_relevant = 0
+        total_correct = 0
+        
+        f2_scores = []
+        
+        for query_id, group in query_groups:
+            query_text = group['query'].iloc[0]
+            relevant_articles = set(group[group['label'] == 'Y']['article_number'].tolist())
+            
+            # Retrieve articles
+            retrieved_articles = self.retriever.retrieve_articles(query_text, top_k=20)
+            retrieved_article_numbers = set(retrieved_articles.keys())
+            
+            # Calculate metrics
+            correct = len(relevant_articles.intersection(retrieved_article_numbers))
+            precision = correct / len(retrieved_article_numbers) if retrieved_article_numbers else 0
+            recall = correct / len(relevant_articles) if relevant_articles else 0
+            
+            # F2 score (beta=2, emphasizes recall)
+            if 4 * precision + recall == 0:
+                f2 = 0
+            else:
+                f2 = (5 * precision * recall) / (4 * precision + recall)
+            
+            f2_scores.append(f2)
+            total_correct += correct
+            total_retrieved += len(retrieved_article_numbers)
+            total_relevant += len(relevant_articles)
+        
+        # Calculate overall metrics
+        overall_precision = total_correct / total_retrieved if total_retrieved > 0 else 0
+        overall_recall = total_correct / total_relevant if total_relevant > 0 else 0
+        overall_f2 = np.mean(f2_scores)
+        
+        return {
+            'precision': overall_precision,
+            'recall': overall_recall,
+            'f2': overall_f2,
+            'total_queries': total_queries,
+            'total_retrieved': total_retrieved,
+            'total_relevant': total_relevant,
+            'total_correct': total_correct
+        }
 
+def create_clause_retriever_from_config(config_path: str) -> ClauseRetriever:
+    """
+    Create ClauseRetriever from configuration file
+    
+    Args:
+        config_path: Path to configuration JSON file
+    
+    Returns:
+        Configured ClauseRetriever instance
+    """
+    with open(config_path, 'r') as f:
+        config = json.load(f)
+    
+    return ClauseRetriever(
+        clauses_db_path=config['clauses_db_path'],
+        model_name=config.get('model_name', 'bert-base-uncased'),
+        dense_weight=config.get('dense_weight', 0.7),
+        boost_factor=config.get('boost_factor', 1.5),
+        top_k=config.get('top_k', 100)
+    )
+
+def save_retriever(retriever: ClauseRetriever, save_path: str):
+    """Save retriever to disk"""
+    with open(save_path, 'wb') as f:
+        pickle.dump(retriever, f)
+
+def load_retriever(load_path: str) -> ClauseRetriever:
+    """Load retriever from disk"""
+    with open(load_path, 'rb') as f:
+        return pickle.load(f)

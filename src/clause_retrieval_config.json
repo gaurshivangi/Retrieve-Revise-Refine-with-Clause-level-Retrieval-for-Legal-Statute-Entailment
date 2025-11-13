@@ -1,0 +1,15 @@
+{
+    "clauses_db_path": "../data/ir_dataset/clauses_database.csv",
+    "model_name": "bert-base-uncased",
+    "dense_weight": 0.7,
+    "boost_factor": 1.5,
+    "top_k": 100,
+    "max_seq_length": 512,
+    "batch_size": 32,
+    "learning_rate": 2e-5,
+    "max_epochs": 10,
+    "dropout": 0.1,
+    "weight_decay": 0.01,
+    "use_clause_retrieval": true,
+    "retrieval_top_k": 100
+}
