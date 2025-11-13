@@ -1,0 +1,127 @@
+2025-11-05 15:47:19,959 - __main__ - {'dropout': 0.1, 'final_div_factor': 10000.0, 'lr_scheduler': 'onecycle', 'lr': 2e-05, 'warmup_steps': 0, 'accumulate_grad_batches': 1, 'optimizer': 'adam', 'adam_epsilon': 1e-06, 'weight_decay': 0.0001, 'clauses_db_path': 'data\\ir_dataset\\clauses_database.csv', 'dense_weight': 0.7, 'boost_factor': 1.5, 'retrieval_top_k': 100, 'use_clause_retrieval': True, 'data_dir': 'data\\COLIEE2025statute_data-English\\data_en_topk_150_r02_r03', 'log_dir': 'settings\\clause_retrieval_gpu', 'max_keep_ckpt': 1, 'pretrained_checkpoint': None, 'batch_size': 8, 'model_name_or_path': 'bert-base-uncased', 'ignore_index': -100, 'max_epochs': 5, 'max_seq_length': 256, 'no_train': False, 'no_test': False, 'no_dev': False, 'gpus': [0], 'ckpt_steps': 1000, 'file_output_id': 'clauseRetrieval', 'civi_code_path': 'data/parsed_civil_code/en_civil_code.json', 'main_enss_path': 'settings/bert-base-japanese-whole-word-masking_5ckpt_150-newE5Seq512L2e-5/datout/test_{}_5_80_0015.txt'}
+2025-11-05 15:47:20,732 - clause_retriever - Loading clauses database...
+2025-11-05 15:47:20,740 - clause_retriever - Loaded 1491 clauses from 777 articles
+2025-11-05 15:47:20,740 - clause_retriever - Initializing dense retriever with bert-base-uncased...
+2025-11-05 15:47:21,716 - clause_retriever - Using device: cpu
+2025-11-05 15:47:21,716 - clause_retriever - Initializing BM25 sparse retriever...
+2025-11-05 15:47:21,742 - clause_retriever - Computing dense embeddings and building retrieval indices...
+2025-11-05 15:47:23,176 - clause_retriever - Processed 0/1491 clauses
+2025-11-05 15:47:36,802 - clause_retriever - Processed 320/1491 clauses
+2025-11-05 15:47:53,098 - clause_retriever - Processed 640/1491 clauses
+2025-11-05 15:48:16,546 - clause_retriever - Processed 960/1491 clauses
+2025-11-05 15:48:36,613 - clause_retriever - Processed 1280/1491 clauses
+2025-11-05 15:48:44,962 - clause_retriever - Computed embeddings shape: (1491, 768)
+2025-11-05 15:48:44,966 - clause_retriever - FAISS index built with 1491 vectors
+2025-11-05 15:48:44,966 - clause_retriever - Retrieval indices built successfully
+2025-11-05 15:48:47,536 - __main__ - total_q = 13
+2025-11-05 15:48:47,537 - __main__ - Miss_query = ['R02-9-U', 'R02-4-I', 'R02-27-A', 'R02-1-E', 'R02-10-U', 'R02-19-E', 'R02-17-O', 'R02-25-A', 'R02-10-I', 'R02-25-U', 'R02-1-U', 'R02-16-U', 'R02-10-E']
+2025-11-05 16:07:57,188 - __main__ - {'dropout': 0.1, 'final_div_factor': 10000.0, 'lr_scheduler': 'onecycle', 'lr': 2e-05, 'warmup_steps': 0, 'accumulate_grad_batches': 1, 'optimizer': 'adam', 'adam_epsilon': 1e-06, 'weight_decay': 0.0001, 'clauses_db_path': 'data\\ir_dataset\\clauses_database.csv', 'dense_weight': 0.7, 'boost_factor': 1.5, 'retrieval_top_k': 100, 'use_clause_retrieval': True, 'data_dir': 'data\\COLIEE2025statute_data-English\\data_en_topk_150_r02_r03', 'log_dir': 'settings\\clause_retrieval_gpu', 'max_keep_ckpt': 1, 'pretrained_checkpoint': None, 'batch_size': 8, 'model_name_or_path': 'bert-base-uncased', 'ignore_index': -100, 'max_epochs': 5, 'max_seq_length': 256, 'no_train': False, 'no_test': False, 'no_dev': False, 'gpus': [0], 'ckpt_steps': 1000, 'file_output_id': 'clauseRetrieval', 'civi_code_path': 'data/parsed_civil_code/en_civil_code.json', 'main_enss_path': 'settings/bert-base-japanese-whole-word-masking_5ckpt_150-newE5Seq512L2e-5/datout/test_{}_5_80_0015.txt'}
+2025-11-05 16:07:57,911 - clause_retriever - Loading clauses database...
+2025-11-05 16:07:57,919 - clause_retriever - Loaded 1491 clauses from 777 articles
+2025-11-05 16:07:57,919 - clause_retriever - Initializing dense retriever with bert-base-uncased...
+2025-11-05 16:08:00,238 - clause_retriever - Using device: cpu
+2025-11-05 16:08:00,238 - clause_retriever - Initializing BM25 sparse retriever...
+2025-11-05 16:08:00,263 - clause_retriever - Computing dense embeddings and building retrieval indices...
+2025-11-05 16:08:01,688 - clause_retriever - Processed 0/1491 clauses
+2025-11-05 16:08:14,929 - clause_retriever - Processed 320/1491 clauses
+2025-11-05 16:08:31,211 - clause_retriever - Processed 640/1491 clauses
+2025-11-05 16:08:54,626 - clause_retriever - Processed 960/1491 clauses
+2025-11-05 16:09:14,745 - clause_retriever - Processed 1280/1491 clauses
+2025-11-05 16:09:23,248 - clause_retriever - Computed embeddings shape: (1491, 768)
+2025-11-05 16:09:23,252 - clause_retriever - FAISS index built with 1491 vectors
+2025-11-05 16:09:23,252 - clause_retriever - Retrieval indices built successfully
+2025-11-05 16:09:25,652 - __main__ - total_q = 13
+2025-11-05 16:09:25,652 - __main__ - Miss_query = ['R02-9-U', 'R02-4-I', 'R02-27-A', 'R02-1-E', 'R02-10-U', 'R02-19-E', 'R02-17-O', 'R02-25-A', 'R02-10-I', 'R02-25-U', 'R02-1-U', 'R02-16-U', 'R02-10-E']
+2025-11-05 16:23:24,425 - __main__ - {'dropout': 0.1, 'final_div_factor': 10000.0, 'lr_scheduler': 'onecycle', 'lr': 2e-05, 'warmup_steps': 0, 'accumulate_grad_batches': 1, 'optimizer': 'adam', 'adam_epsilon': 1e-06, 'weight_decay': 0.0001, 'clauses_db_path': 'data\\ir_dataset\\clauses_database.csv', 'dense_weight': 0.7, 'boost_factor': 1.5, 'retrieval_top_k': 100, 'use_clause_retrieval': True, 'data_dir': 'data\\COLIEE2025statute_data-English\\data_en_topk_150_r02_r03', 'log_dir': 'settings\\clause_retrieval_gpu', 'max_keep_ckpt': 1, 'pretrained_checkpoint': None, 'batch_size': 8, 'model_name_or_path': 'bert-base-uncased', 'ignore_index': -100, 'max_epochs': 5, 'max_seq_length': 256, 'no_train': False, 'no_test': False, 'no_dev': False, 'gpus': [0], 'ckpt_steps': 1000, 'file_output_id': 'clauseRetrieval', 'civi_code_path': 'data/parsed_civil_code/en_civil_code.json', 'main_enss_path': 'settings/bert-base-japanese-whole-word-masking_5ckpt_150-newE5Seq512L2e-5/datout/test_{}_5_80_0015.txt'}
+2025-11-05 16:23:25,197 - clause_retriever - Loading clauses database...
+2025-11-05 16:23:25,206 - clause_retriever - Loaded 1491 clauses from 777 articles
+2025-11-05 16:23:25,206 - clause_retriever - Initializing dense retriever with bert-base-uncased...
+2025-11-05 16:23:26,289 - clause_retriever - Using device: cpu
+2025-11-05 16:23:26,290 - clause_retriever - Initializing BM25 sparse retriever...
+2025-11-05 16:23:26,313 - clause_retriever - Computing dense embeddings and building retrieval indices...
+2025-11-05 16:23:27,748 - clause_retriever - Processed 0/1491 clauses
+2025-11-05 16:23:41,263 - clause_retriever - Processed 320/1491 clauses
+2025-11-05 16:23:57,420 - clause_retriever - Processed 640/1491 clauses
+2025-11-05 16:24:20,819 - clause_retriever - Processed 960/1491 clauses
+2025-11-05 16:24:40,889 - clause_retriever - Processed 1280/1491 clauses
+2025-11-05 16:24:49,370 - clause_retriever - Computed embeddings shape: (1491, 768)
+2025-11-05 16:24:49,374 - clause_retriever - FAISS index built with 1491 vectors
+2025-11-05 16:24:49,374 - clause_retriever - Retrieval indices built successfully
+2025-11-05 16:25:30,152 - __main__ - total_q = 13
+2025-11-05 16:25:30,152 - __main__ - Miss_query = ['R02-9-U', 'R02-4-I', 'R02-27-A', 'R02-1-E', 'R02-10-U', 'R02-19-E', 'R02-17-O', 'R02-25-A', 'R02-10-I', 'R02-25-U', 'R02-1-U', 'R02-16-U', 'R02-10-E']
+2025-11-05 17:21:23,048 - __main__ - {'dropout': 0.1, 'final_div_factor': 10000.0, 'lr_scheduler': 'onecycle', 'lr': 2e-05, 'warmup_steps': 0, 'accumulate_grad_batches': 1, 'optimizer': 'adam', 'adam_epsilon': 1e-06, 'weight_decay': 0.0001, 'clauses_db_path': 'data\\ir_dataset\\clauses_database.csv', 'dense_weight': 0.7, 'boost_factor': 1.5, 'retrieval_top_k': 100, 'use_clause_retrieval': True, 'data_dir': 'data\\COLIEE2025statute_data-English\\data_en_topk_150_r02_r03', 'log_dir': 'settings\\clause_retrieval_gpu', 'max_keep_ckpt': 1, 'pretrained_checkpoint': None, 'batch_size': 8, 'model_name_or_path': 'bert-base-uncased', 'ignore_index': -100, 'max_epochs': 5, 'max_seq_length': 256, 'no_train': False, 'no_test': False, 'no_dev': False, 'gpus': [0], 'ckpt_steps': 1000, 'file_output_id': 'clauseRetrieval', 'civi_code_path': 'data/parsed_civil_code/en_civil_code.json', 'main_enss_path': 'settings/bert-base-japanese-whole-word-masking_5ckpt_150-newE5Seq512L2e-5/datout/test_{}_5_80_0015.txt'}
+2025-11-05 17:21:23,818 - clause_retriever - Loading clauses database...
+2025-11-05 17:21:23,835 - clause_retriever - Loaded 1491 clauses from 777 articles
+2025-11-05 17:21:23,835 - clause_retriever - Initializing dense retriever with bert-base-uncased...
+2025-11-05 17:21:25,042 - clause_retriever - Using device: cuda
+2025-11-05 17:21:25,042 - clause_retriever - Initializing BM25 sparse retriever...
+2025-11-05 17:21:25,121 - clause_retriever - Computing dense embeddings and building retrieval indices...
+2025-11-05 17:21:25,415 - clause_retriever - Processed 0/1491 clauses
+2025-11-05 17:21:26,514 - clause_retriever - Processed 320/1491 clauses
+2025-11-05 17:21:27,798 - clause_retriever - Processed 640/1491 clauses
+2025-11-05 17:21:29,665 - clause_retriever - Processed 960/1491 clauses
+2025-11-05 17:21:31,328 - clause_retriever - Processed 1280/1491 clauses
+2025-11-05 17:21:32,017 - clause_retriever - Computed embeddings shape: (1491, 768)
+2025-11-05 17:21:32,017 - clause_retriever - FAISS index built with 1491 vectors
+2025-11-05 17:21:32,017 - clause_retriever - Retrieval indices built successfully
+2025-11-05 17:22:26,171 - __main__ - total_q = 13
+2025-11-05 17:22:26,171 - __main__ - Miss_query = ['R02-9-U', 'R02-4-I', 'R02-27-A', 'R02-1-E', 'R02-10-U', 'R02-19-E', 'R02-17-O', 'R02-25-A', 'R02-10-I', 'R02-25-U', 'R02-1-U', 'R02-16-U', 'R02-10-E']
+2025-11-05 17:27:21,621 - __main__ - {'dropout': 0.1, 'final_div_factor': 10000.0, 'lr_scheduler': 'onecycle', 'lr': 2e-05, 'warmup_steps': 0, 'accumulate_grad_batches': 1, 'optimizer': 'adam', 'adam_epsilon': 1e-06, 'weight_decay': 0.0001, 'clauses_db_path': 'data\\ir_dataset\\clauses_database.csv', 'dense_weight': 0.7, 'boost_factor': 1.5, 'retrieval_top_k': 100, 'use_clause_retrieval': True, 'data_dir': 'data\\COLIEE2025statute_data-English\\data_en_topk_150_r02_r03', 'log_dir': 'settings\\clause_retrieval_gpu', 'max_keep_ckpt': 1, 'pretrained_checkpoint': None, 'batch_size': 8, 'model_name_or_path': 'bert-base-uncased', 'ignore_index': -100, 'max_epochs': 5, 'max_seq_length': 256, 'no_train': False, 'no_test': False, 'no_dev': False, 'gpus': [0], 'ckpt_steps': 1000, 'file_output_id': 'clauseRetrieval', 'civi_code_path': 'data/parsed_civil_code/en_civil_code.json', 'main_enss_path': 'settings/bert-base-japanese-whole-word-masking_5ckpt_150-newE5Seq512L2e-5/datout/test_{}_5_80_0015.txt'}
+2025-11-05 17:27:22,528 - clause_retriever - Loading clauses database...
+2025-11-05 17:27:22,539 - clause_retriever - Loaded 1491 clauses from 777 articles
+2025-11-05 17:27:22,539 - clause_retriever - Initializing dense retriever with bert-base-uncased...
+2025-11-05 17:27:24,308 - clause_retriever - Using device: cuda
+2025-11-05 17:27:24,308 - clause_retriever - Initializing BM25 sparse retriever...
+2025-11-05 17:27:24,324 - clause_retriever - Computing dense embeddings and building retrieval indices...
+2025-11-05 17:27:24,690 - clause_retriever - Processed 0/1491 clauses
+2025-11-05 17:27:25,791 - clause_retriever - Processed 320/1491 clauses
+2025-11-05 17:27:27,091 - clause_retriever - Processed 640/1491 clauses
+2025-11-05 17:27:28,974 - clause_retriever - Processed 960/1491 clauses
+2025-11-05 17:27:30,640 - clause_retriever - Processed 1280/1491 clauses
+2025-11-05 17:27:31,308 - clause_retriever - Computed embeddings shape: (1491, 768)
+2025-11-05 17:27:31,308 - clause_retriever - FAISS index built with 1491 vectors
+2025-11-05 17:27:31,308 - clause_retriever - Retrieval indices built successfully
+2025-11-05 17:27:31,908 - __main__ - total_q = 1
+2025-11-05 17:27:31,908 - __main__ - Miss_query = ['R02-1-A']
+2025-11-05 18:24:34,657 - __main__ - total_q = 81
+2025-11-05 18:24:34,657 - __main__ - Miss_query = ['R02-1-A', 'R02-1-I', 'R02-1-U', 'R02-1-E', 'R02-2-E', 'R02-3-A', 'R02-3-I', 'R02-3-U', 'R02-3-O', 'R02-4-A', 'R02-4-I', 'R02-4-U', 'R02-5-A', 'R02-5-I', 'R02-5-U', 'R02-5-E', 'R02-5-O', 'R02-8-E', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-E', 'R02-9-O', 'R02-10-I', 'R02-10-U', 'R02-10-E', 'R02-11-E', 'R02-12-A', 'R02-13-A', 'R02-13-E', 'R02-15-I', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-16-I', 'R02-16-U', 'R02-16-E', 'R02-16-O', 'R02-17-A', 'R02-17-I', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-19-E', 'R02-21-A', 'R02-23-I', 'R02-23-U', 'R02-23-E', 'R02-23-O', 'R02-24-A', 'R02-24-I', 'R02-24-U', 'R02-24-E', 'R02-24-O', 'R02-25-A', 'R02-25-I', 'R02-25-U', 'R02-25-E', 'R02-25-O', 'R02-26-A', 'R02-26-I', 'R02-26-U', 'R02-26-O', 'R02-27-A', 'R02-27-I', 'R02-27-U', 'R02-27-E', 'R02-27-O', 'R02-28-U', 'R02-28-O', 'R02-29-A', 'R02-36-A', 'R02-36-I', 'R02-36-U', 'R02-36-E', 'R02-37-A', 'R02-37-I']
+2025-11-05 19:21:00,227 - __main__ - total_q = 81
+2025-11-05 19:21:00,227 - __main__ - Miss_query = ['R02-1-A', 'R02-1-I', 'R02-1-U', 'R02-1-E', 'R02-2-E', 'R02-3-A', 'R02-3-I', 'R02-3-U', 'R02-3-O', 'R02-4-A', 'R02-4-I', 'R02-4-U', 'R02-5-A', 'R02-5-I', 'R02-5-U', 'R02-5-E', 'R02-5-O', 'R02-8-E', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-E', 'R02-9-O', 'R02-10-I', 'R02-10-U', 'R02-10-E', 'R02-11-E', 'R02-12-A', 'R02-13-A', 'R02-13-E', 'R02-15-I', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-16-I', 'R02-16-U', 'R02-16-E', 'R02-16-O', 'R02-17-A', 'R02-17-I', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-19-E', 'R02-21-A', 'R02-23-I', 'R02-23-U', 'R02-23-E', 'R02-23-O', 'R02-24-A', 'R02-24-I', 'R02-24-U', 'R02-24-E', 'R02-24-O', 'R02-25-A', 'R02-25-I', 'R02-25-U', 'R02-25-E', 'R02-25-O', 'R02-26-A', 'R02-26-I', 'R02-26-U', 'R02-26-O', 'R02-27-A', 'R02-27-I', 'R02-27-U', 'R02-27-E', 'R02-27-O', 'R02-28-U', 'R02-28-O', 'R02-29-A', 'R02-36-A', 'R02-36-I', 'R02-36-U', 'R02-36-E', 'R02-37-A', 'R02-37-I']
+2025-11-05 20:17:23,697 - __main__ - total_q = 81
+2025-11-05 20:17:23,697 - __main__ - Miss_query = ['R02-1-I', 'R02-3-U', 'R02-5-I', 'R02-9-U', 'R02-9-O', 'R02-10-I', 'R02-12-A', 'R02-13-A', 'R02-13-E', 'R02-15-I', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-19-E', 'R02-23-O', 'R02-25-A', 'R02-29-A']
+2025-11-05 21:13:49,111 - __main__ - total_q = 81
+2025-11-05 21:13:49,111 - __main__ - Miss_query = ['R02-1-I', 'R02-1-U', 'R02-3-I', 'R02-3-U', 'R02-4-A', 'R02-4-I', 'R02-4-U', 'R02-5-A', 'R02-5-I', 'R02-5-U', 'R02-8-E', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-E', 'R02-9-O', 'R02-10-I', 'R02-12-A', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-16-I', 'R02-16-U', 'R02-16-O', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-19-E', 'R02-23-U', 'R02-23-E', 'R02-23-O', 'R02-24-A', 'R02-24-I', 'R02-24-U', 'R02-24-E', 'R02-24-O', 'R02-25-A', 'R02-28-U', 'R02-28-O', 'R02-29-A', 'R02-36-A', 'R02-37-I']
+2025-11-05 22:10:09,902 - __main__ - total_q = 81
+2025-11-05 22:10:09,902 - __main__ - Miss_query = ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-23-O', 'R02-24-I', 'R02-24-E', 'R02-24-O', 'R02-26-U', 'R02-29-A']
+2025-11-05 23:06:36,509 - __main__ - total_q = 81
+2025-11-05 23:06:36,509 - __main__ - Miss_query = ['R02-3-U', 'R02-4-A', 'R02-4-U', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-E', 'R02-9-O', 'R02-12-A', 'R02-13-A', 'R02-13-E', 'R02-15-I', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-19-E', 'R02-23-U', 'R02-23-E', 'R02-23-O', 'R02-24-I', 'R02-24-U', 'R02-24-E', 'R02-24-O', 'R02-29-A', 'R02-36-A', 'R02-37-I']
+2025-11-06 00:02:57,360 - __main__ - total_q = 81
+2025-11-06 00:02:57,360 - __main__ - Miss_query = ['R02-1-I', 'R02-3-U', 'R02-4-A', 'R02-4-U', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-I', 'R02-15-U', 'R02-15-E', 'R02-16-A', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-23-E', 'R02-23-O', 'R02-24-I', 'R02-24-O', 'R02-29-A', 'R02-36-A', 'R02-37-A', 'R02-37-I']
+2025-11-06 00:59:18,271 - __main__ - total_q = 81
+2025-11-06 00:59:18,271 - __main__ - Miss_query = ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-16-I', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-E', 'R02-23-E', 'R02-23-O', 'R02-24-I', 'R02-24-U', 'R02-29-A', 'R02-36-A', 'R02-37-I']
+2025-11-06 01:55:39,981 - __main__ - total_q = 81
+2025-11-06 01:55:39,981 - __main__ - Miss_query = ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-16-A', 'R02-16-I', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-19-I', 'R02-23-I', 'R02-23-E', 'R02-23-O', 'R02-24-I', 'R02-24-O', 'R02-26-O', 'R02-28-U', 'R02-29-A', 'R02-36-A', 'R02-37-I']
+2025-11-06 02:51:59,650 - __main__ - total_q = 81
+2025-11-06 02:51:59,650 - __main__ - Miss_query = ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-A', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-E', 'R02-15-O', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-23-I', 'R02-23-E', 'R02-23-O', 'R02-24-I', 'R02-26-O', 'R02-28-U', 'R02-29-A', 'R02-36-A', 'R02-37-I']
+2025-11-06 02:52:00,280 - __main__ - ['settings\\clause_retrieval_gpu\\epoch=2-step=47662.ckpt']
+2025-11-06 02:52:00,280 - __main__ - ==== Predict (settings\clause_retrieval_gpu\epoch=2-step=47662.ckpt) ====
+2025-11-06 02:56:08,648 - __main__ - total_q = 81
+2025-11-06 02:56:08,648 - __main__ - Miss_query = ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-23-O', 'R02-24-I', 'R02-24-E', 'R02-24-O', 'R02-26-U', 'R02-29-A']
+2025-11-06 02:56:08,648 - __main__ - {'retrieved': 48, 'valid_p': 0.4804526748971193, 'valid_r': 0.5493827160493827, 'valid_f2': 0.5186454492010047, 'valid_r-topk': 0.8209876543209876, 'miss_q': ['R02-3-U', 'R02-4-U', 'R02-8-O', 'R02-9-I', 'R02-9-U', 'R02-9-O', 'R02-13-A', 'R02-13-E', 'R02-15-U', 'R02-15-E', 'R02-15-O', 'R02-17-A', 'R02-17-U', 'R02-17-O', 'R02-18-U', 'R02-19-A', 'R02-23-O', 'R02-24-I', 'R02-24-E', 'R02-24-O', 'R02-26-U', 'R02-29-A']}
+2025-11-06 02:56:08,982 - __main__ - total_q = 81
+2025-11-06 02:56:08,982 - __main__ - Miss_query = []
+2025-11-06 02:56:09,071 - __main__ - {'retrieved': 57, 'valid_p': 0.5915637860082305, 'valid_r': 0.6419753086419753, 'valid_f2': 0.6132956549623219, 'valid_r-topk': 0.8209876543209876, 'miss_q': []}
+2025-11-06 02:56:09,071 - __main__ - ==== Predict (settings\clause_retrieval_gpu\epoch=2-step=47662.ckpt) ====
+2025-11-06 03:01:51,082 - __main__ - total_q = 109
+2025-11-06 03:01:51,082 - __main__ - Miss_query = ['R03-03-A', 'R03-03-E', 'R03-03-I', 'R03-03-O', 'R03-03-U', 'R03-04-I', 'R03-08-O', 'R03-10-O', 'R03-12-A', 'R03-15-A', 'R03-15-I', 'R03-17-O', 'R03-19-A', 'R03-19-E', 'R03-19-O', 'R03-21-E', 'R03-21-I', 'R03-22-I', 'R03-22-O', 'R03-23-A', 'R03-23-I', 'R03-23-U', 'R03-24-E', 'R03-25-E', 'R03-25-I', 'R03-25-O', 'R03-25-U', 'R03-26-U', 'R03-29-U', 'R03-36-U']
+2025-11-06 03:01:51,082 - __main__ - {'retrieved': 70, 'valid_p': 0.4712538226299694, 'valid_r': 0.5925076452599389, 'valid_f2': 0.540214245489475, 'valid_r-topk': 0.9288990825688074, 'miss_q': ['R03-03-A', 'R03-03-E', 'R03-03-I', 'R03-03-O', 'R03-03-U', 'R03-04-I', 'R03-08-O', 'R03-10-O', 'R03-12-A', 'R03-15-A', 'R03-15-I', 'R03-17-O', 'R03-19-A', 'R03-19-E', 'R03-19-O', 'R03-21-E', 'R03-21-I', 'R03-22-I', 'R03-22-O', 'R03-23-A', 'R03-23-I', 'R03-23-U', 'R03-24-E', 'R03-25-E', 'R03-25-I', 'R03-25-O', 'R03-25-U', 'R03-26-U', 'R03-29-U', 'R03-36-U']}
+2025-11-06 03:01:51,532 - __main__ - total_q = 109
+2025-11-06 03:01:51,532 - __main__ - Miss_query = []
+2025-11-06 03:01:51,638 - __main__ - {'retrieved': 86, 'valid_p': 0.6180428134556576, 'valid_r': 0.7120795107033638, 'valid_f2': 0.6621351380525693, 'valid_r-topk': 0.9288990825688074, 'miss_q': []}
+2025-11-06 03:01:51,638 - __main__ - ==== Predict (settings\clause_retrieval_gpu\epoch=2-step=47662.ckpt) ====
+2025-11-06 03:01:52,109 - __main__ - total_q = 109
+2025-11-06 03:01:52,109 - __main__ - Miss_query = ['R03-03-A', 'R03-03-E', 'R03-03-I', 'R03-03-O', 'R03-03-U', 'R03-04-I', 'R03-08-O', 'R03-10-O', 'R03-12-A', 'R03-15-A', 'R03-15-I', 'R03-17-O', 'R03-19-A', 'R03-19-E', 'R03-19-O', 'R03-21-E', 'R03-21-I', 'R03-22-I', 'R03-22-O', 'R03-23-A', 'R03-23-I', 'R03-23-U', 'R03-24-E', 'R03-25-E', 'R03-25-I', 'R03-25-O', 'R03-25-U', 'R03-26-U', 'R03-29-U', 'R03-36-U']
+2025-11-06 03:01:52,125 - __main__ - {'retrieved': 70, 'valid_p': 0.4712538226299694, 'valid_r': 0.5925076452599389, 'valid_f2': 0.540214245489475, 'valid_r-topk': 0.9288990825688074, 'miss_q': ['R03-03-A', 'R03-03-E', 'R03-03-I', 'R03-03-O', 'R03-03-U', 'R03-04-I', 'R03-08-O', 'R03-10-O', 'R03-12-A', 'R03-15-A', 'R03-15-I', 'R03-17-O', 'R03-19-A', 'R03-19-E', 'R03-19-O', 'R03-21-E', 'R03-21-I', 'R03-22-I', 'R03-22-O', 'R03-23-A', 'R03-23-I', 'R03-23-U', 'R03-24-E', 'R03-25-E', 'R03-25-I', 'R03-25-O', 'R03-25-U', 'R03-26-U', 'R03-29-U', 'R03-36-U']}
+2025-11-06 03:01:52,582 - __main__ - total_q = 109
+2025-11-06 03:01:52,582 - __main__ - Miss_query = []
+2025-11-06 03:01:52,733 - __main__ - {'retrieved': 86, 'valid_p': 0.6180428134556576, 'valid_r': 0.7120795107033638, 'valid_f2': 0.6621351380525693, 'valid_r-topk': 0.9288990825688074, 'miss_q': []}
