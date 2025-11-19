@@ -10,9 +10,6 @@ The script creates:
 2. Negative sampling for contrastive learning
 3. Evaluation sets for model validation
 4. Format compatible with popular IR libraries
-
-Author: AI Assistant
-Date: 2025
 """
 
 import os
