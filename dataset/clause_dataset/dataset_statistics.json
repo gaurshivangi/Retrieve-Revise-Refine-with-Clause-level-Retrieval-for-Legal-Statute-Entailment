@@ -1,9 +1,3 @@
-{
-  "total_clauses": 1491,
-  "total_articles": 779,
-  "total_queries": 1206,
-  "positive_examples": 1867,
-  "yes_labels": 614,
-  "no_labels": 592,
-  "avg_articles_per_query": 1.5480928689883913
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4130daa32a4fcd15bd35790f1f50113acf80cb59eb7f8e23dedc5c95fd2e834d
+size 203
