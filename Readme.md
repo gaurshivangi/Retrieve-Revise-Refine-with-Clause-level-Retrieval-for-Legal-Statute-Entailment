@@ -99,8 +99,7 @@ bash run_complete_pipeline.sh
 
 **Step 1: Retrieve Phase**
 ```bash
-# This generates clause-level retrieval results
-# (Implementation depends on your retrieval method)
+python colab_quick_start.py
 ```
 
 **Step 2: Revise Phase (with Qwen + Few-shot)**
